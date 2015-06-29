@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+html {
+  height: 100%;
+}
+
+body {
+    background: url("<%= asset_path 'Blue_Starburst_Background_by_brightrose.jpg' %>");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+// Popcorn button positioning and animation for hover and click.
+
+#popcorn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background: none;
+    outline:none;
+}
+
+#content:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+#content:active {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+// Red background and animation for fade in and hover effect.
+
+#bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: image-url("<%= asset_path 'background-red.jpg' %>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .30s ease-in-out;
+  -moz-transition: opacity .30s ease-in-out;
+  -webkit-transition: opacity .30s ease-in-out;
+}
+
+#popcorn:hover ~ #bg {
+  opacity: 1;
+  z-index: 1;
+}
+
+// Placing menu button
+
+#hamburger {
+    background: #000000;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 95%;
+    right: 0;
+    border-radius: 10px;
+    opacity: 0.2;
+    z-index: 2;
+}
