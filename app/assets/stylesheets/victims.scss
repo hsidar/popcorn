@@ -1,16 +1,16 @@
-// Place all the styles related to the Victims controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 
 html {
-    height: 100%
+  height: 100%;
 }
+
 body {
-    background-image: image-url("Blue_Starburst_Background_by_brightrose.jpg");
+    background: url("Blue_Starburst_Background_by_brightrose.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+
+// Popcorn button positioning and animation for hover and click.
+
 #popcorn {
     position: fixed;
     top: 50%;
@@ -18,12 +18,14 @@ body {
     transform: translate(-50%, -50%);
     z-index: 5;
 }
+
 button {
     padding: 0;
     border: none;
     background: none;
     outline:none;
 }
+
 #content:hover {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
@@ -36,32 +38,35 @@ button {
     -o-transform: scale(1);
     transform: scale(1);
 }
+
+// Red background and animation for fade in and hover effect.
+
 #bg {
-    background-image: image-url("background-red.jpg");
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: image-url("background-red.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .30s ease-in-out;
+  -moz-transition: opacity .30s ease-in-out;
+  -webkit-transition: opacity .30s ease-in-out;
 }
 
-#poop {
-    top: 88%;
-    bottom: 0;
-    left: 0;
-    right: 0;
+#popcorn:hover ~ #bg {
+  opacity: 1;
+  z-index: 1;
 }
-#menu {
-    background: #000000;
-    position: absolute;
-    top: 88%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    z-index: 0;
-}
+
+
+
+
+// Placing menu button
+
 #hamburger {
     background: #000000;
     position: absolute;
@@ -72,19 +77,4 @@ button {
     border-radius: 10px;
     opacity: 0.2;
     z-index: 2;
-}
-#options {
-    position: fixed;
-    width: 100%;
-    font-family: Papyrus;
-    background-color: black;
-    color: white;
-    list-style-type: none;
-    font-size: 3vw;
-    bottom: 0;
-}
-#options li {
-    display: inline;
-    margin-top: 10%;
-    padding:  2em;
 }
