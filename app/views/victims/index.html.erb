@@ -1,11 +1,18 @@
-<button id="popcorn">
-  <%= image_tag "popcorn.png", id: "content" %>
-</button>
+<%= link_to (image_tag "popcorn.png", id: "content"), 'choose', id: "popcorn", remote: true %>
 
 <div id="bg"></div>
 
-<div id="hamburger">
-    <%= image_tag "menu.svg" %>
-</div>
+<div class="footer">
+    <div id="menu">
+      <ul>
+        <li>Manage</li>
+        <li>Rankings</li>
+        <li>Misc</li>
+      </ul>
+    </div>
+    <%= image_tag "menu.svg", id: "hamburger" %>
+  </div>
+
+  <div class="chosen-wrapper"></div>
 
 <%= audio_tag("inception.mp3", id: "bong") %>

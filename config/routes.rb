@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   resources :victims
-  
+
   root 'victims#index'
+
+  get 'choose' => 'victims#choose'
 
   get 'show' => 'victims#show'
 
