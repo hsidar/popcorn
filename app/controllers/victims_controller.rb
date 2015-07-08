@@ -28,9 +28,9 @@ class VictimsController < ApplicationController
 
     HTTParty.get("http://raccoon-metadata-project.herokuapp.com/raccoons.json").each do |raccoon|
       if !Victim.exists?(name: raccoon["name"])
-      newbies.push(name: raccoon["name"], avatar: raccoon["avatar_url"])
+        newbies.push(name: raccoon["name"], avatar: raccoon["avatar_url"], avatar_thumb: raccoon["avatar_thumb"])
       else
-      veterans.push(raccoon["name"])
+        veterans.push(raccoon["name"])
       end
     end
 
@@ -47,6 +47,7 @@ class VictimsController < ApplicationController
       newb = Victim.new
       newb.name = noob[:name]
       newb.avatar = noob[:avatar]
+      newb.avatar_thumb = noob[:avatar_thumb]
       newb.rank = 0
       newb.save
     end
@@ -59,10 +60,10 @@ class VictimsController < ApplicationController
 
   def award
     if params[:commit] == "Aye!"
-    awardee = Victim.find_by(name: params[:chosen])
-    awardee.rank += 1
-    awardee.save
-    redirect_to '/leaderboard'
+      awardee = Victim.find_by(name: params[:chosen])
+      awardee.rank += 1
+      awardee.save
+      redirect_to '/leaderboard'
     elsif params[:commit] == "Nay!"
       redirect_to root_path
     end

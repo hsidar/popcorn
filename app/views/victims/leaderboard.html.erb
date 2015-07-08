@@ -1,5 +1,5 @@
 <ul>
   <% @low_price_leaders.each do |winner| %>
-    <li><%= winner.name %></li>
+    <li><%= image_tag winner.avatar_thumb %><%= winner.name %></li>
   <% end %>
 </ul>
