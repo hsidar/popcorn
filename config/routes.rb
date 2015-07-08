@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'show' => 'victims#show'
 
+  post 'award' => 'victims#award'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

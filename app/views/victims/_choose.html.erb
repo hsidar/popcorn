@@ -1,9 +1,23 @@
 
   <div class="chosen">
-  <%= image_tag @raccoon[:avatar] %>
+  <%= image_tag @first_choice[:avatar] %>
   <p>
-    <%=@raccoon[:name]%> was chosen.
+    <%=@first_choice[:name]%> was chosen. Do they accept this trial?
   </p>
+
+  <%= form_tag 'award', class: "choice" do %>
+  <%= hidden_field_tag 'chosen', @first_choice[:name] %>
+  <%= submit_tag "Aye!" %>
+  <% end %>
+
+  <%= form_tag 'award', class: "choice" do %>
+  <%= hidden_field_tag 'bad_choice', @first_choice[:name] %>
+  <%= hidden_field_tag 'chosen', @chosen[0][:name] %>
+  <%= submit_tag "Nay!" %>
+  <% end %>
+
+
+
 </div>
 <div class="rmp-footer">
   <p class="rmp-link">
