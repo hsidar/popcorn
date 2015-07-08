@@ -64,7 +64,6 @@ class VictimsController < ApplicationController
     awardee.save
     redirect_to root_path
     elsif params[:commit] == "Nay!"
-      byebug
       redirect_to root_path
     end
   end
