@@ -62,13 +62,14 @@ class VictimsController < ApplicationController
     awardee = Victim.find_by(name: params[:chosen])
     awardee.rank += 1
     awardee.save
-    redirect_to root_path
+    redirect_to '/leaderboard'
     elsif params[:commit] == "Nay!"
       redirect_to root_path
     end
   end
 
 
-  def ranking
+  def leaderboard
+    @low_price_leaders = Victim.order(rank: :desc).limit(10)
   end
 end
