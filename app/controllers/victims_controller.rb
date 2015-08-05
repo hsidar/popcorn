@@ -26,16 +26,17 @@ class VictimsController < ApplicationController
     newbies = []
     veterans = []
 
-    HTTParty.get("http://raccoon-metadata-project.herokuapp.com/raccoons.json").each do |raccoon|
-      if !Victim.exists?(name: raccoon["name"])
-        newbies.push(name: raccoon["name"], avatar: raccoon["avatar_url"], avatar_thumb: raccoon["avatar_thumb"])
+    HTTParty.get("http://raccoon-metadata-project.herokuapp.com/raccoons.json").each do |victim|
+      if !Victim.exists?(name: victim["name"])
+        newbies.push(name: victim["name"], avatar: victim["avatar_url"], avatar_thumb: victim["avatar_thumb"])
       else
-        veterans.push(raccoon["name"])
+        veterans.push(victim["name"])
       end
     end
 
-    rank = 0
-    if Victim.all.length > 0
+    
+    if Victim.where(name: veterans).length > 0
+      rank = 0
       until Victim.where(name: veterans).where(rank: rank).length > 0 do
         rank += 1
       end

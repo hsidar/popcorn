@@ -1,5 +1,8 @@
-<ul>
-  <% @low_price_leaders.each do |winner| %>
-    <li><%= image_tag winner.avatar_thumb %><%= winner.name %></li>
-  <% end %>
-</ul>
+<div class="top-ten">
+<h2>Top Ten</h2>
+  <ul class="top-ten__ul">
+    <% @low_price_leaders.each do |winner| %>
+      <li class = "top-ten__list-item"><%= image_tag winner.avatar_thumb %><%= winner.name %></li>
+    <% end %>
+  </ul>
+</div>
