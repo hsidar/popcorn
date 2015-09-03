@@ -1,8 +1,11 @@
 <div class="top-ten">
-<h2>Top Ten</h2>
+<h1>Leaderboard</h1>
   <ul class="top-ten__ul">
     <% @low_price_leaders.each do |winner| %>
-      <li class = "top-ten__list-item"><%= image_tag winner.avatar_thumb %><%= winner.name %></li>
+      <li class = "top-ten__list-item"><%= image_tag winner.avatar, class: 'poop' %><p><%= winner.name %></p></li>
+      <hr/>
     <% end %>
   </ul>
 </div>
+
+

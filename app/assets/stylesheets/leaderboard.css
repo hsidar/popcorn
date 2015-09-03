@@ -1,0 +1,22 @@
+.top-ten {
+  color: white;
+  text-align: center;
+}
+
+.top-ten h1{
+  font-size: 7vw;
+  margin: 3%;
+}
+
+top-ten__list-item {
+  display: block;
+  float: left;
+  padding-bottom: 100%;
+  font-size: 10px;
+}
+
+.poop {
+  border-radius: 100%;
+  width: 50vh;
+  height: 50vh;
+}
